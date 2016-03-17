@@ -1,1 +1,22 @@
-Write a program to calculate the modified duration and convexity of a cash flow. All numbers are period based for simplicity. The settlement time can fall on any time between two cash flows as on p. 71 of the slides. Inputs: (1) s (spot rates), (2) C (cash flow), (3) w (as defined in slides). Output: (1) modified duration and (2) convexity. For example, assume s = [0.053, 0.051, 0.049, 0.047], C = [3, 2, 3, 102] and w = 0.3. Then the modified duration is 2.9981 and convexity is 12.1813. Please send your source code, executable code, and a brief explanation file if necessary (e.g., how to run it?) using the CEIBA system (922 U0270) before 08:00 AM of March 23, 2016. No late submissions will be accepted. Compress your files into a single file and name it StudentID_HW_1 for easy reference. Example: R91922054_HW_1. Even if you need to make an appointment with xxx for demonstration because of the unusual software you use, you still have to submit the files before the deadline.
+Write a program to calculate the modified duration and convexity of a cash flow.
+All numbers are period based for simplicity. 
+The settlement time can fall on any time between two cash flows as on p. 71 of the slides. 
+
+Inputs: (1) s (spot rates)
+	(2) C (cash flow)
+	(3) w (as defined in slides). 
+Output: (1) modified duration
+	(2) convexity.
+
+For example, assume 
+	s = [0.053, 0.051, 0.049, 0.047]
+	C = [3, 2, 3, 102]	
+	w = 0.3.
+Then 
+	the modified duration is 2.9981
+	convexity is 12.1813
+
+Please send your 
+1. source code
+2. executable code
+3. a brief explanation file if necessary (e.g., how to run it?) using the CEIBA system (922 U0270) before 08:00 AM of March 23, 2016. No late submissions will be accepted. Compress your files into a single file and name it StudentID_HW_1 for easy reference. Example: R91922054_HW_1. Even if you need to make an appointment with xxx for demonstration because of the unusual software you use, you still have to submit the files before the deadline.
