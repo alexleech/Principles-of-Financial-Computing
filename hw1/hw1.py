@@ -19,9 +19,11 @@ def getMD(s, C, n, w):
 	y = getYTM(s, C, n, w, pv)
 	duration = duration/(1+y)
 	print 'Modified duration = '+str(duration)
+	getConvexity(s, C, n, w, y, pv)
+	getPseudoConv(s, C, n, w, y, pv)
 	return duration
 def getYTM(s, C, n, w, pv):
-	accuracy = 100000
+	accuracy = 1000000
 	minErr = 999999999999
 	bestY = 1/accuracy
 	for y in range(accuracy):
@@ -31,11 +33,30 @@ def getYTM(s, C, n, w, pv):
 			err = err + C[i]/(Yield**(w+i))
 		err = abs(pv-err)
 		if err<minErr:
-			print err
 			minErr = err
 			bestY = Yield-1
 	print 'yield = '+str(bestY)
 	return bestY
+def getConvexity(s, C, n, w, y, pv):
+	# should be 12.1813
+	conv = 0
+	for i in range(n):
+		t = w+i
+		conv = conv + C[i]*(t+1)*t / ((1+s[i])**t)
+	conv = conv/pv/(1+y)**2
+	print 'conv = '+str(conv)
+def getPseudoConv(s, C, n, w, y, pv):
+	deltaY = 0.005
+	pv_plus = 0
+	y=y+1
+	for i in range(n):
+		pv_plus = pv_plus + C[i]/(y+deltaY)**(w+i)
+	pv_minus = 0
+	for i in range(n):
+		pv_minus = pv_minus + C[i]/(y-deltaY)**(w+i)
+	conv = (pv_plus+pv_minus-2*pv)/pv/deltaY/deltaY
+	print 'pseudo conv = '+str(conv)
+
 if __name__ == '__main__':
 
 	n = len(s)
