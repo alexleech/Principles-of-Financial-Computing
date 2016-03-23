@@ -1,7 +1,7 @@
 import sys
-#s = [0.053, 0.051, 0.049, 0.047]
-#C = [3, 2, 3, 102]
-#w = 0.3
+s = [0.053, 0.051, 0.049, 0.047]
+C = [3, 2, 3, 102]
+w = 0.3
 
 def getPV(s, C, n, w):
 	pv = 0
@@ -43,8 +43,9 @@ def getConvexity(s, C, n, w, y, pv):
 	conv = 0
 	for i in range(n):
 		t = w+i
-		conv = conv + C[i]*(t+1)*t / ((1+s[i])**t)
-	conv = conv/pv/(1+y)**2
+		conv = conv + C[i]*(t+1)*t / ((1+s[i])**(t+2))
+		#conv = conv + C[i]*(t+1)*t / ((1+s[i])**t)
+	conv = conv/pv
 	print 'Convexity = '+str(conv)
 def getPseudoConv(s, C, n, w, y, pv):
 	deltaY = 0.005
@@ -59,12 +60,12 @@ def getPseudoConv(s, C, n, w, y, pv):
 	#print 'pseudo conv = '+str(conv)
 
 if __name__ == '__main__':
-	s_input = raw_input("please type in the spot rates(s): ")
+	'''s_input = raw_input("please type in the spot rates(s): ")
 	s = map(float, s_input.strip().split(","))
 	C_input = raw_input("please type in the cash flow(C): ")
 	C = map(float, C_input.split(","))
 	w_input = raw_input("please type in the w: ")
-	w = float(w_input)
+	w = float(w_input)'''
 	n = len(s)
 	if len(C)!=n:
 		print "size of s and C inconsistent!"
