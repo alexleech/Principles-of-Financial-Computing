@@ -1,0 +1,17 @@
+Write a program to price American-style Asian single-barrier up-and-out calls based on the CRR binomial tree. 
+The payoff of this call at expiration date is max(average - X, 0) if the running average never touches or penetrates the barrier and 0 if otherwise. 
+Note also that the call may be exercised at any time before the expiration date due to its American-style characteristic. 
+Inputs: S (stock price at time 0), 
+		X (strike price), 
+		H (barrier, which is higher than S), 
+		t (maturity in years), 
+		s (%) (annual volatility), 
+		r (%) (continuously compounded annual interest rate), 
+		n (number of periods), and k (number of states per node). 
+For example, when S = 100, X = 80, H = 130, t = 1 (years), s = 30%, r = 10%, n = 100, and k = 300, 
+the price is about 25.6562.
+ 
+Please send your source code, executable code, and a brief explanation file if necessary (e.g., how to run it?) using the CEIBA system (922 U0270) before 08:00 AM of April 27, 2016. No late submissions will be accepted. Compress your files into a single file and name it StudentID_HW_2 for easy reference. 
+Example: R91723054_HW_2. 
+Even if you need to make an appointment with 陸裕豪 for demonstration because of the unusual software you use, 
+you still have to submit the files before the deadline.
