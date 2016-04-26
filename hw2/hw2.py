@@ -22,12 +22,12 @@ def BOPF(data):
     r_ = r * t / n
     R = exp(r_)
     p = (R - d) / (u - d)  # Risk-neutral P
-    MAXSUM = [[0]*(n+1)]*(n+1)
+    MAXSUM = [[None]*(n+1)]*(n+1)
     MAXSUM = np.array(MAXSUM)
-    MINSUM = [[0]*(n+1)]*(n+1)
+    MINSUM = [[None]*(n+1)]*(n+1)
     MINSUM = np.array(MINSUM)
     def Amax(j, i):
-        if MAXSUM[j][i]!=0:
+        if MAXSUM[j][i]!=None:
             #print(MAXSUM[j][i])
             return MAXSUM[j][i]
         #print j*100+i
@@ -37,7 +37,7 @@ def BOPF(data):
         return maxsum
 
     def Amin(j, i):
-        if MINSUM[j][i]!=0:
+        if MINSUM[j][i]!=None:
             #print(MINSUM[j][i])
             return MINSUM[j][i]
         minsum = (S * ((1 - d ** (i + 1)) / (1 - d) + d ** i * u * (1 - u ** (j - i)) / (1 - u) ))
@@ -99,7 +99,6 @@ def BOPF(data):
             C[i][:] = D[:]
 
     print C[0][0]
-    #print sum(C[0]) / len(C[0])
 
 
 if __name__ == '__main__':
@@ -111,5 +110,4 @@ if __name__ == '__main__':
             BOPF(test)
         print "finished!"
     else:
-        print 'Requires an input file.  Please select one from the data \
-               directory. (e.g. python hw2.py ./data)'
+        print 'Requires an input file. (e.g. python hw2.py data)'
