@@ -1,0 +1,23 @@
+Write a least-squares Monte Carlo program to price American puts.
+Output its price and standard error. 
+Inputs: 
+		S (stock price at time 0), 
+		X (strike price), 
+		T (maturity in years), 
+		s (%) (annual volatility), 
+		r (%) (continuously compounded annual interest rate), 
+		n (number of periods), and 
+		k (number of simulation paths). 
+For example, when 
+		S = 101, 
+		X = 105, 
+		T = 1 (years), 
+		s = 15%, 
+		r = 2%, 
+		n = 50, and 
+		k = 100,000, 
+the price is about 7.3642 and the standard error is about 0.0223. 
+
+Please send your source code, executable code, and a brief explanation file if necessary (e.g., how to run it?) using the CEIBA system (922 U0270) before 08:00 AM of May 25, 2016. 
+No late submissions will be accepted. Compress your files into a single file and name it StudentID_HW_3 for easy reference. Example: R03922054_HW_3. 
+Even if you need to make an appointment with 陸裕豪 for demonstration because of the unusual software you use, you still have to submit the files before the deadline.
