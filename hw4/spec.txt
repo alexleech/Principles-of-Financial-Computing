@@ -1,0 +1,29 @@
+Write a program to price an x-year American-style put option on a zero-coupon bond that
+matures at year y with a par value of 1 dollar.
+Use trees for the CIR model.
+Inputs: 
+		x (year), 
+		y (year), 
+		r (%) (initial short rate), 
+		b (%) and 
+		m (%), 
+		s (%), 
+		n (the number of steps during the option's life), and 
+		strike price X (% of par).
+For example, when 
+		x = 1, 
+		y = 2, 
+		r = 4 (%), 
+		b = 20 (%), 
+		m = 4 (%), 
+		s = 10 (%), 
+		n = 30, and 
+		X = 95 (%).
+the option price is about 2.65173 (% of par).
+
+Please send your source code, executable code, and a brief explanation file if necessary (e.g., how to run it?) 
+using the CEIBA system (922 U0270) before 08:00 AM of June 22, 2016. 
+Compress your files into a single file and name it StudentID_HW_4 for easy reference. 
+Example: R91723054_HW_4. Even if you need to make an appointment with 盧政良 for demonstration because of the unusual software you use, 
+you still have to submit the files before the deadline.
+No late submissions will be accepted. Compress your files into a single file and name it StudentID_HW_3 for easy reference. Example: R03922054_HW_3. 
