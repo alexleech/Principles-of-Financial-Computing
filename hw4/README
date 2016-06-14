@@ -3,5 +3,3 @@ python hw4.py ./data
 in the terminal :)
 
 data file is in a json format which you can easily modify it!
-Total exection time is like 15 minutes.
-Feel free to change the number of loop at line 107 (defaut is 30)
