@@ -59,9 +59,9 @@ def BinomialCIR(data):
 			discountFactor = 1 / exp(r_prime * deltaT)
 			#print "dis = "+str(discountFactor)
 			Price[i] = (p*Price[i]+(1.0-p)*Price[i+1])*discountFactor
-			print "j = "+str(j)+" i = "+str(i)+" r = "+str(r_prime)+" p = "+str(p)+" $ = " +str(Price[i])
 			if j<=optionDuration and Price[i]>X:
 				Price[i] = 0
+			print "j = "+str(j)+" i = "+str(i)+" r = "+str(r_prime)+" p = "+str(p)+" $ = " +str(Price[i])
 	return Price[0]
 
 if __name__ == '__main__':
