@@ -31,14 +31,16 @@ def BinomialCIR(data):
 
 	# data after calc
 	deltaT = T/n
-	print "deltaT = "+str(deltaT)
+	#print "deltaT = "+str(deltaT)
 	x_r = 2*sqrt(r)/s
 	deltaX = sqrt(deltaT)
 	optionDuration = n*t/T
 	print optionDuration
 	# Initial Price
 	Price = np.ones(n+1)
+	Option = np.zeros((n+1, n+1))
 	# Binomial CIR model
+	transformToOption = False
 	for j in reversed(range(n)):
 		for i in range(j+1):
 			p = 1
@@ -59,10 +61,21 @@ def BinomialCIR(data):
 			discountFactor = 1 / exp(r_prime * deltaT)
 			#print "dis = "+str(discountFactor)
 			Price[i] = (p*Price[i]+(1.0-p)*Price[i+1])*discountFactor
-			if j<=optionDuration and Price[i]>X:
-				Price[i] = 0
-			print "j = "+str(j)+" i = "+str(i)+" r = "+str(r_prime)+" p = "+str(p)+" $ = " +str(Price[i])
-	return Price[0]
+			'''if j<=optionDuration and not transformToOption:
+				Price[i] = max(X-Price[i], 0)
+				if i==j:
+					transformToOption = True
+	return 100*(X/exp(r*deltaT*optionDuration)-Price[0])
+			'''
+			if j<=optionDuration:
+				cont = (p*Option[j+1][i]+(1.0-p)*Option[j+1][i+1])*discountFactor
+				if cont>(X-Price[i]):
+					print "j = "+str(j)+" i = "+str(i)+" cont = "+str(cont)+" now = "+str(X-Price[i])
+				Option[j][i] = max(X-Price[i], cont, 0)
+			#print "j = "+str(j)+" i = "+str(i)+" r = "+str(r_prime)+" p = "+str(p)+" $ = " +str(Price[i])
+			#print Option[j][i]
+	return 100*(X-Price[0])
+	#return 100*(Option[0][0])
 
 if __name__ == '__main__':
 	if len(sys.argv) > 1:
